@@ -1,0 +1,425 @@
+mysql> create databaase Likitha_db;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databaase Likitha_db' at line 1
+mysql> create database Likitha_db;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| likitha_db         |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.07 sec)
+
+mysql> clear;
+mysql> use Likitha_db;
+Database changed
+mysql> create table doctors(doc_id integer,doc_name varchar(20),doc_salary float,doc_gen char(1), doc_dob date,doc_special varchar(20),doc_city varchar(20));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> describe doctors;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| doc_id      | int         | YES  |     | NULL    |       |
+| doc_name    | varchar(20) | YES  |     | NULL    |       |
+| doc_salary  | float       | YES  |     | NULL    |       |
+| doc_gen     | char(1)     | YES  |     | NULL    |       |
+| doc_dob     | date        | YES  |     | NULL    |       |
+| doc_special | varchar(20) | YES  |     | NULL    |       |
+| doc_city    | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+7 rows in set (0.03 sec)
+
+mysql> insert into doctors values(1001,'Likitha',65000.25,'f','2003/01/27','cardiology',''Pati');
+    '> insert into doctors values(1001,'Likitha',65000.25,'f','2003/01/27','cardiology','Pati');
+    '> insert into doctors values(1001,'L
+    -> select * from doctors;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Pati');
+insert into doctors values(1001,'Likitha',65000.25,'f','2003/01/27','car' at line 1
+mysql> insert into doctors values(1001,'Likitha',65000.25,'f','2003/01/27','cardiology','Pati');
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> insert into doctors values(1002,'Yeshu',65000.25,'f','2003/10/01','cardiology','Taranak');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into doctors values(1003,'chitti',65000.25,'f','2003/10/01','Ent','Ngri');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into doctors values(1004,'jannu',65000.25,'f','2003/11/02','neuro','Nagole');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> select * from doctors
+    -> select * from doctors;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from doctors' at line 2
+mysql> select * from doctors;
++--------+----------+------------+---------+------------+-------------+----------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city |
++--------+----------+------------+---------+------------+-------------+----------+
+|   1001 | Likitha  |    65000.2 | f       | 2003-01-27 | cardiology  | Pati     |
+|   1002 | Yeshu    |    65000.2 | f       | 2003-10-01 | cardiology  | Taranak  |
+|   1003 | chitti   |    65000.2 | f       | 2003-10-01 | Ent         | Ngri     |
+|   1004 | jannu    |    65000.2 | f       | 2003-11-02 | neuro       | Nagole   |
++--------+----------+------------+---------+------------+-------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into doctors(doc-id,doc_name,doc_salary,doc_gen) values(1005,'archu',56000,22,'f');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-id,doc_name,doc_salary,doc_gen) values(1005,'archu',56000,22,'f')' at line 1
+mysql> insert into doctors(doc_id,doc_name,doc_salary,doc_gen) values(1005,'archu',56000,22,'f');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into doctors(doc_id,doc_name,doc_salary,doc_gen) values(1005,'archu',56000.22,'f');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into doctors(doc_id,doc_name,doc_salary,doc_gen) values(1006,'yeshu',57000.22,'f');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from doctors;
++--------+----------+------------+---------+------------+-------------+----------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city |
++--------+----------+------------+---------+------------+-------------+----------+
+|   1001 | Likitha  |    65000.2 | f       | 2003-01-27 | cardiology  | Pati     |
+|   1002 | Yeshu    |    65000.2 | f       | 2003-10-01 | cardiology  | Taranak  |
+|   1003 | chitti   |    65000.2 | f       | 2003-10-01 | Ent         | Ngri     |
+|   1004 | jannu    |    65000.2 | f       | 2003-11-02 | neuro       | Nagole   |
+|   1005 | archu    |    56000.2 | f       | NULL       | NULL        | NULL     |
+|   1006 | yeshu    |    57000.2 | f       | NULL       | NULL        | NULL     |
++--------+----------+------------+---------+------------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update doctors set doc_dob='2003-01-04',doc_special='oncology',doc_city='sircilla; where doc_id=1006;
+    '> update doctors set doc_dob='2003-01-04'whwere doc_id=1005;
+    '> update doctors set doc_dob='2003-01-04'where doc_id=1005;
+    '> ^C
+mysql> update doctors set doc_dob='2003-01-04'where doc_id=1005;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update doctors set doc_salary=doc_salary+500;
+Query OK, 6 rows affected (0.01 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> select * from doctors;
++--------+----------+------------+---------+------------+-------------+----------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city |
++--------+----------+------------+---------+------------+-------------+----------+
+|   1001 | Likitha  |    65500.2 | f       | 2003-01-27 | cardiology  | Pati     |
+|   1002 | Yeshu    |    65500.2 | f       | 2003-10-01 | cardiology  | Taranak  |
+|   1003 | chitti   |    65500.2 | f       | 2003-10-01 | Ent         | Ngri     |
+|   1004 | jannu    |    65500.2 | f       | 2003-11-02 | neuro       | Nagole   |
+|   1005 | archu    |    56500.2 | f       | 2003-01-04 | NULL        | NULL     |
+|   1006 | yeshu    |    57500.2 | f       | NULL       | NULL        | NULL     |
++--------+----------+------------+---------+------------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> update doctors set doc_salary=doc_salary+500;
+Query OK, 6 rows affected (0.01 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> select * from doctors;
++--------+----------+------------+---------+------------+-------------+----------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city |
++--------+----------+------------+---------+------------+-------------+----------+
+|   1001 | Likitha  |    66000.2 | f       | 2003-01-27 | cardiology  | Pati     |
+|   1002 | Yeshu    |    66000.2 | f       | 2003-10-01 | cardiology  | Taranak  |
+|   1003 | chitti   |    66000.2 | f       | 2003-10-01 | Ent         | Ngri     |
+|   1004 | jannu    |    66000.2 | f       | 2003-11-02 | neuro       | Nagole   |
+|   1005 | archu    |    57000.2 | f       | 2003-01-04 | NULL        | NULL     |
+|   1006 | yeshu    |    58000.2 | f       | NULL       | NULL        | NULL     |
++--------+----------+------------+---------+------------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select doc_id,doc_name,doc_salary from doctors where doc_salary<3000;
+Empty set (0.01 sec)
+
+mysql> select doc_id,doc_name,doc_salary from doctors where doc_salary<60000;
++--------+----------+------------+
+| doc_id | doc_name | doc_salary |
++--------+----------+------------+
+|   1005 | archu    |    57000.2 |
+|   1006 | yeshu    |    58000.2 |
++--------+----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> rename table doctors to physicians;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> selcet * from physicians;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selcet * from physicians' at line 1
+mysql> select * from physicians;
++--------+----------+------------+---------+------------+-------------+----------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city |
++--------+----------+------------+---------+------------+-------------+----------+
+|   1001 | Likitha  |    66000.2 | f       | 2003-01-27 | cardiology  | Pati     |
+|   1002 | Yeshu    |    66000.2 | f       | 2003-10-01 | cardiology  | Taranak  |
+|   1003 | chitti   |    66000.2 | f       | 2003-10-01 | Ent         | Ngri     |
+|   1004 | jannu    |    66000.2 | f       | 2003-11-02 | neuro       | Nagole   |
+|   1005 | archu    |    57000.2 | f       | 2003-01-04 | NULL        | NULL     |
+|   1006 | yeshu    |    58000.2 | f       | NULL       | NULL        | NULL     |
++--------+----------+------------+---------+------------+-------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> show tables:
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':
+show tables' at line 1
+mysql> alter table physicians add column doc_email varachar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varachar(20)' at line 1
+mysql> alter table physicians add column doc_email varchar(20);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from physicians;
++--------+----------+------------+---------+------------+-------------+----------+-----------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city | doc_email |
++--------+----------+------------+---------+------------+-------------+----------+-----------+
+|   1001 | Likitha  |    66000.2 | f       | 2003-01-27 | cardiology  | Pati     | NULL      |
+|   1002 | Yeshu    |    66000.2 | f       | 2003-10-01 | cardiology  | Taranak  | NULL      |
+|   1003 | chitti   |    66000.2 | f       | 2003-10-01 | Ent         | Ngri     | NULL      |
+|   1004 | jannu    |    66000.2 | f       | 2003-11-02 | neuro       | Nagole   | NULL      |
+|   1005 | archu    |    57000.2 | f       | 2003-01-04 | NULL        | NULL     | NULL      |
+|   1006 | yeshu    |    58000.2 | f       | NULL       | NULL        | NULL     | NULL      |
++--------+----------+------------+---------+------------+-------------+----------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> update physicians set doc_email='doctor@yahoo.com';
+Query OK, 6 rows affected (0.01 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> select * from physicians;
++--------+----------+------------+---------+------------+-------------+----------+------------------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city | doc_email        |
++--------+----------+------------+---------+------------+-------------+----------+------------------+
+|   1001 | Likitha  |    66000.2 | f       | 2003-01-27 | cardiology  | Pati     | doctor@yahoo.com |
+|   1002 | Yeshu    |    66000.2 | f       | 2003-10-01 | cardiology  | Taranak  | doctor@yahoo.com |
+|   1003 | chitti   |    66000.2 | f       | 2003-10-01 | Ent         | Ngri     | doctor@yahoo.com |
+|   1004 | jannu    |    66000.2 | f       | 2003-11-02 | neuro       | Nagole   | doctor@yahoo.com |
+|   1005 | archu    |    57000.2 | f       | 2003-01-04 | NULL        | NULL     | doctor@yahoo.com |
+|   1006 | yeshu    |    58000.2 | f       | NULL       | NULL        | NULL     | doctor@yahoo.com |
++--------+----------+------------+---------+------------+-------------+----------+------------------+
+6 rows in set (0.00 sec)
+
+mysql> alter table physicians drop column doc_email;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table physicians add column doc_email varchar(20);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from physicians;
++--------+----------+------------+---------+------------+-------------+----------+-----------+
+| doc_id | doc_name | doc_salary | doc_gen | doc_dob    | doc_special | doc_city | doc_email |
++--------+----------+------------+---------+------------+-------------+----------+-----------+
+|   1001 | Likitha  |    66000.2 | f       | 2003-01-27 | cardiology  | Pati     | NULL      |
+|   1002 | Yeshu    |    66000.2 | f       | 2003-10-01 | cardiology  | Taranak  | NULL      |
+|   1003 | chitti   |    66000.2 | f       | 2003-10-01 | Ent         | Ngri     | NULL      |
+|   1004 | jannu    |    66000.2 | f       | 2003-11-02 | neuro       | Nagole   | NULL      |
+|   1005 | archu    |    57000.2 | f       | 2003-01-04 | NULL        | NULL     | NULL      |
+|   1006 | yeshu    |    58000.2 | f       | NULL       | NULL        | NULL     | NULL      |
++--------+----------+------------+---------+------------+-------------+----------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> desc physicians;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| doc_id      | int         | YES  |     | NULL    |       |
+| doc_name    | varchar(20) | YES  |     | NULL    |       |
+| doc_salary  | float       | YES  |     | NULL    |       |
+| doc_gen     | char(1)     | YES  |     | NULL    |       |
+| doc_dob     | date        | YES  |     | NULL    |       |
+| doc_special | varchar(20) | YES  |     | NULL    |       |
+| doc_city    | varchar(20) | YES  |     | NULL    |       |
+| doc_email   | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+8 rows in set (0.02 sec)
+
+mysql> alter table physicians modifty column doc_email date;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'modifty column doc_email date' at line 1
+mysql> alter table physicians modify column doc_email date;
+Query OK, 6 rows affected (0.08 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> desc physicians;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| doc_id      | int         | YES  |     | NULL    |       |
+| doc_name    | varchar(20) | YES  |     | NULL    |       |
+| doc_salary  | float       | YES  |     | NULL    |       |
+| doc_gen     | char(1)     | YES  |     | NULL    |       |
+| doc_dob     | date        | YES  |     | NULL    |       |
+| doc_special | varchar(20) | YES  |     | NULL    |       |
+| doc_city    | varchar(20) | YES  |     | NULL    |       |
+| doc_email   | date        | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> create database healthcaresystem_db;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use healthcaresystem_db;
+Database changed
+mysql> create table health_care_system(doc_id integer,doc_name varchar(20),doc_specialization varchar(10),doc_gen char(1),doc_dob date,doc_exp_in_year
+    -> create table health_care_system(doc_id integer,doc_name varchar(20),doc_specialization varchar(10),doc_gen char(1),doc_dob date,doc_exp_in_years integer,doc_certification varchar(20),doc_award varchar(10),doc_department varchar(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create table health_care_system(doc_id integer,doc_name varchar(20),doc_speciali' at line 2
+mysql> create table healthcaresystem(doc_id integer,doc_name varchar(20),doc_specialization varchar(10),doc_gen char(1),doc_dob date,doc_exp_in_years integer,doc_certification varchar(20),doc_award varchar(10),doc_department varchar(10));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table patients(rxno integer,name varchar(20),gender char(1),disease varchar(10),medication varchar(10),date_of_admit date,days_in_hosiptal integer,date_of_discharge date,bill_amount float);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> insert into health_care_system(3214c,'Puppy','cardo','f',1995/03/01,4,'hit','oscar','it');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Puppy','cardo','f',1995/03/01,4,'hit','oscar','it')' at line 1
+mysql> insert into healthcaresystem(3214,'Puppy','cardo','f',1995/03/01,4,'hit','oscar','it');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3214,'Puppy','cardo','f',1995/03/01,4,'hit','oscar','it')' at line 1
+mysql> insert into healthcaresystem(3214,'Puppy','cardo','f','1995/03/01',4,'hit','oscar','it');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3214,'Puppy','cardo','f','1995/03/01',4,'hit','oscar','it')' at line 1
+mysql> insert into healthcaresystem values(3214,'Puppy','cardo','f','1995/03/01',4,'hit','oscar','it');
+Query OK, 1 row affected, 1 warning (0.02 sec)
+
+mysql> insert into healthcaresystem values(2,'neurology','M','1987/07/1',6,'a3','nandi','nerves');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into healthcaresystem values(2,'likhitha','neurology','M','1987/07/1',6,'a3','nandi','nerves');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into healthcaresystem values(2,'likki','neurology','M','1987/07/1',6,'a3','nandi','nerves');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into healthcaresystem values(2,'likki','cardo','f','1987/07/1',6,'a3','null','nerves');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into healthcaresystem values(2,'cat','neruo','m','1987/07/4',6,'a4','empty','nerves');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> insert into healthcaresystem values(2,'dog','dentist','f','1987/04/4',6,'a4','empty','nerves');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> select * from healthcaresystem;
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+| doc_id | doc_name | doc_specialization | doc_gen | doc_dob    | doc_exp_in_years | doc_certification | doc_award | doc_department |
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+|   3214 | Puppy    | cardo              | f       | 1995-03-01 |                4 | hit               | oscar     | it             |
+|      2 | likhitha | neurology          | M       | 1987-07-01 |                6 | a3                | nandi     | nerves         |
+|      2 | likki    | neurology          | M       | 1987-07-01 |                6 | a3                | nandi     | nerves         |
+|      2 | likki    | cardo              | f       | 1987-07-01 |                6 | a3                | null      | nerves         |
+|      2 | cat      | neruo              | m       | 1987-07-04 |                6 | a4                | empty     | nerves         |
+|      2 | dog      | dentist            | f       | 1987-04-04 |                6 | a4                | empty     | nerves         |
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into fields values(10312,'Husky','f',20,'kidneystones','treatment','2025/01/10',6,'2025/01/16','25000');
+ERROR 1146 (42S02): Table 'healthcaresystem_db.fields' doesn't exist
+mysql> insert healthcaresystem patient values(10312,'Husky','f',20,'kidneystones','treatment','2025/01/10',6,'2025/01/16','25000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'patient values(10312,'Husky','f',20,'kidneystones','treatment','2025/01/10',6,'2' at line 1
+mysql> insert into patient values(10312,'Husky','f',20,'kidneystones','treatment','2025/01/10',6,'2025/01/16','25000');
+ERROR 1146 (42S02): Table 'healthcaresystem_db.patient' doesn't exist
+mysql> insert into patient values(10312,'Husky','f','kidneystones','treatment','2025/01/10',6,'2025/01/16','25000');
+ERROR 1146 (42S02): Table 'healthcaresystem_db.patient' doesn't exist
+mysql> insert into patients values(10312,'Husky','f','kidneystones','treatment','2025/01/10',6,'2025/01/16','25000');
+ERROR 1406 (22001): Data too long for column 'disease' at row 1
+mysql> insert into patients values(10312,'Husky','f','kidneysnes','treatment','2025/01/10',6,'2025/01/16','25000');
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql> insert into patients values(10312,'Ruby','f','kidneysnes','treatment','2025/01/11',4,'2025/01/16','25001');
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql> insert into patients values(10312,'puppy','f','kidneysnes','treatment','2025/01/11',5,'2025/01/16','25002');
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql> insert into patients values(10312,'hy','f','fever','treatment','2025/01/11',5,'2025/01/16','25004');
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql> insert into patients values(10312,'hy','f','cold','treatment','2025/01/11',5,'2025/01/16','25007');
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql> select * from patients;
++-------+-------+--------+------------+------------+---------------+------------------+-------------------+-------------+
+| rxno  | name  | gender | disease    | medication | date_of_admit | days_in_hosiptal | date_of_discharge | bill_amount |
++-------+-------+--------+------------+------------+---------------+------------------+-------------------+-------------+
+| 10312 | Husky | f      | kidneysnes | treatment  | 2025-01-10    |                6 | 2025-01-16        |       25000 |
+| 10312 | Ruby  | f      | kidneysnes | treatment  | 2025-01-11    |                4 | 2025-01-16        |       25001 |
+| 10312 | puppy | f      | kidneysnes | treatment  | 2025-01-11    |                5 | 2025-01-16        |       25002 |
+| 10312 | hy    | f      | fever      | treatment  | 2025-01-11    |                5 | 2025-01-16        |       25004 |
+| 10312 | hy    | f      | cold       | treatment  | 2025-01-11    |                5 | 2025-01-16        |       25007 |
++-------+-------+--------+------------+------------+---------------+------------------+-------------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select *from doctors where doc_exp<=3;
+ERROR 1146 (42S02): Table 'healthcaresystem_db.doctors' doesn't exist
+mysql> select *from healthcaresystem where doc_exp<=3;
+ERROR 1054 (42S22): Unknown column 'doc_exp' in 'where clause'
+mysql> select *from healthcaresystem where doc_exp_in_year<=3;
+ERROR 1054 (42S22): Unknown column 'doc_exp_in_year' in 'where clause'
+mysql> select *from healthcaresystem where doc_exp_in_years<=3;
+Empty set (0.00 sec)
+
+mysql> select *from healthcaresystem where doc_exp_in_years<=1;
+Empty set (0.00 sec)
+
+mysql> select *from healthcaresystem where doc_exp_in_years<=5;
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+| doc_id | doc_name | doc_specialization | doc_gen | doc_dob    | doc_exp_in_years | doc_certification | doc_award | doc_department |
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+|   3214 | Puppy    | cardo              | f       | 1995-03-01 |                4 | hit               | oscar     | it             |
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+1 row in set (0.00 sec)
+
+mysql> select *from healthcaresystem where doc_gen='m';
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+| doc_id | doc_name | doc_specialization | doc_gen | doc_dob    | doc_exp_in_years | doc_certification | doc_award | doc_department |
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+|      2 | likhitha | neurology          | M       | 1987-07-01 |                6 | a3                | nandi     | nerves         |
+|      2 | likki    | neurology          | M       | 1987-07-01 |                6 | a3                | nandi     | nerves         |
+|      2 | cat      | neruo              | m       | 1987-07-04 |                6 | a4                | empty     | nerves         |
++--------+----------+--------------------+---------+------------+------------------+-------------------+-----------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> update  patients set bill_amount=bill_amount+((2/100)*bill_amount);
+Query OK, 5 rows affected (0.01 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> select * from patients;
++-------+-------+--------+------------+------------+---------------+------------------+-------------------+-------------+
+| rxno  | name  | gender | disease    | medication | date_of_admit | days_in_hosiptal | date_of_discharge | bill_amount |
++-------+-------+--------+------------+------------+---------------+------------------+-------------------+-------------+
+| 10312 | Husky | f      | kidneysnes | treatment  | 2025-01-10    |                6 | 2025-01-16        |       25500 |
+| 10312 | Ruby  | f      | kidneysnes | treatment  | 2025-01-11    |                4 | 2025-01-16        |       25501 |
+| 10312 | puppy | f      | kidneysnes | treatment  | 2025-01-11    |                5 | 2025-01-16        |       25502 |
+| 10312 | hy    | f      | fever      | treatment  | 2025-01-11    |                5 | 2025-01-16        |     25504.1 |
+| 10312 | hy    | f      | cold       | treatment  | 2025-01-11    |                5 | 2025-01-16        |     25507.1 |
++-------+-------+--------+------------+------------+---------------+------------------+-------------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from doctors where specialization = 'oncology';
+ERROR 1146 (42S02): Table 'healthcaresystem_db.doctors' doesn't exist
+mysql> select * from healthcaresystem where specialization = 'oncology';
+ERROR 1054 (42S22): Unknown column 'specialization' in 'where clause'
+mysql> select * from healthcaresystem where doc_specialization = 'oncology';
+Empty set (0.00 sec)
+
+mysql> select * from healthcaresystem where doc_specialization = 'oncology';
+Empty set (0.00 sec)
+
+mysql> select * from healthcaresystem where doc_specialization = 'onology';
+Empty set (0.00 sec)
+
+mysql> select * from healthcaresystem where doc_specialization = 'ology';
+Empty set (0.00 sec)
